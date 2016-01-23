@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cyanstack by Cyandev</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/loaders.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/global.css">
+	<script type="text/javascript" src="/static/js/jquery.js"></script>
+</head>
+<body>
+	<h1 class="grey70 text-center" style="margin-top: 80px; margin-bottom: 28px; font-size: 40pt;">Cyanstack</h1>
+	<p class="grey60 text-center" style="font-size: 12pt;">Life is hard, but I'm trying. Never to be settled.</p>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2 card" style="margin-top: 40px; margin-bottom: 40px; padding: 6px 20px;">
+				<span class="glyphicon glyphicon-search grey60" style="font-size: 14pt;"></span>
+				<input class="input-no-border" style="font-size: 18pt; width: calc(100% - 25px);" placeholder="Search something here..."/>
+			</div>
+		</div>
+		<div id="articles-container">
+			<div class="placeholder"></div>
+		</div>
+		<div id="loading-indicator">
+			<div class="line-scale">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<h2 id="end-hint" class="grey40 text-center" style="margin-top: 50px; font-family: monospace;">/* Loading */</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2" style="margin-top: 30pt;">
+				<nav>
+					<ul class="pager">
+						<li id="prev-btn" class="previous hide"><a href="javascript:void(0);">PREV</a></li>
+						<li id="next-btn" class="next hide"><a href="javascript:void(0);">NEXT</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<hr style="border-color: #ccc; margin-top: 120px;">
+		<footer style="text-align: center; opacity: 0.6;">
+			<p>Completely designed &amp; written by <a href="https://www.github.com/unixzii">Cyandev</a></p>
+			<p>Not hosted on GitHub.</p>
+		</footer>
+	</div>
+</body>
+<script type="text/javascript">
+	var currentPage;
+
+	if (location.hash.startsWith('#page=')) {
+		currentPage = parseInt(location.hash.substr(6, location.hash.length));
+	}
+
+	if (currentPage == NaN || currentPage == null) {
+		currentPage = 1;
+	}
+
+	function doFetchArticles () {
+		jQuery('#loading-indicator').show();
+		jQuery('body').animate({scrollTop: 0}, 500);
+		location.hash = 'page=' + currentPage.toString();
+		jQuery.ajax({
+			url: '/actions/fetch_articles?page=' + currentPage.toString(),
+			dataType: 'text',
+			success: function (data) {
+				eval(data);
+			}
+		});
+	}
+
+	setTimeout(doFetchArticles, 1000);
+
+	jQuery('#prev-btn').click(function () {
+		currentPage--;
+		doFetchArticles();
+	});
+
+	jQuery('#next-btn').click(function () {
+		currentPage++;
+		doFetchArticles();
+	});
+</script>
+</html>

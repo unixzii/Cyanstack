@@ -1,0 +1,108 @@
+body {
+	background-color: #ededef;
+}
+
+.card {
+	background-color: #fff;
+	border-radius: 2px;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.23)
+}
+
+.grey10 {
+	color: rgba(0, 0, 0, 0.1);
+}
+
+.grey20 {
+	color: rgba(0, 0, 0, 0.2);
+}
+
+.grey30 {
+	color: rgba(0, 0, 0, 0.3);
+}
+
+.grey40 {
+	color: rgba(0, 0, 0, 0.4);
+}
+
+.grey50 {
+	color: rgba(0, 0, 0, 0.5);
+}
+
+.grey60 {
+	color: rgba(0, 0, 0, 0.6);
+}
+
+.grey70 {
+	color: rgba(0, 0, 0, 0.7);
+}
+
+.grey80 {
+	color: rgba(0, 0, 0, 0.8);
+}
+
+.grey90 {
+	color: rgba(0, 0, 0, 0.9);
+}
+
+.input-no-border {
+	padding: 5px 20px;
+	border: none;
+}
+
+.pager li>a {
+	background-color: #fff;
+	border: none;
+	border-radius: 4px;
+	color: #e91e63;
+	font-weight: bold;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+	transition: all 0.5s;
+}
+
+.pager li>a:active {
+	background-color: #fff;
+	border: none;
+	border-radius: 4px;
+	color: #e91e63;
+	font-weight: bold;
+	box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.5);
+}
+
+.input-no-border:focus {
+	border: none;
+	outline: none;
+}
+
+.material-link {
+	color: #e91e63;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.material-link:hover {
+	color: #e91e63;
+	opacity: 0.8;
+	text-decoration: none;
+}
+
+.material-link:active, .material-link:visited {
+	color: #e91e63;
+	text-decoration: none;
+}
+
+.placeholder {
+	height: 200px;
+}
+
+#loading-indicator {
+	position: absolute;
+	width: 56px;
+	top: 400px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+}
+
+.line-scale>div {
+	background-color: #e91e63;
+}
